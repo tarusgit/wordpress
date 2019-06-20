@@ -1,0 +1,17 @@
+if ( ! function_exists( 'wp_handle_upload' ) ) {
+		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+	}
+	
+      // echo "<pre>"; print_r($_FILES['attachment_1']); die("123");     
+		$uploadedfile = $_FILES['attachment_1'];
+		$uploadedfile1 = $_FILES['attachment_2'];
+		$uploadedfile2 = $_FILES['attachment_3'];
+
+		$upload_overrides = array( 'test_form' => false );
+
+		$movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+		$movefile1 = wp_handle_upload( $uploadedfile1, $upload_overrides );
+		$movefile2 = wp_handle_upload( $uploadedfile2, $upload_overrides ); 
+		$attch1=$movefile['url'];
+		$attch2=$movefile1['url'];
+		$attch3=$movefile2['url'];
